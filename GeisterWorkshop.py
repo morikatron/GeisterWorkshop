@@ -1,8 +1,9 @@
 # coding:utf-8
 """
 Geister program for Board game AI Workshop #1
+
+© Morikatron Inc. 2019
 written by matsubara@morikatron.co.jp
-2019/5/20
 
 動作環境はPython 3.5以降。特別なライブラリは不要。
 """
