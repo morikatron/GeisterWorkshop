@@ -58,8 +58,8 @@ class GameState(Enum):
     enter_opponent_move = 1  # 相手の打ち手（x,y,direction）の入力待ち
     enter_color_of_captured_piece = 2  # AIがとったコマの色の入力待ち
     next_is_AI_move = 3  # 次はAIの番です
-    won = 4  # 私の勝ち
-    lost = 5  # 私の負け
+    won = 4  # AIの勝ち
+    lost = 5  # AIの負け
 
 
 # クラスを定義
@@ -139,9 +139,9 @@ class Move:
 
     def __init__(self, which_player=ME, piece_ix=-1, piece_x=0, piece_y=0, direction='n'):
         self.which_player = which_player  # プレイヤー番号
-        self.piece_ix = piece_ix  # コマの番号
-        self.piece_x = piece_x  # コマの番号
-        self.piece_y = piece_y  # コマの番号
+        self.piece_ix = piece_ix  # コマの番号　（コマの番号を指定するか、X,Yを指定するか。どっちでもかまわない）
+        self.piece_x = piece_x  # コマのX座標
+        self.piece_y = piece_y  # コマのY座標
         self.direction = direction  # コマの移動方向
         self.x_after_move = 0  # コマを動かした後のX座標
         self.y_after_move = 0  # コマを動かした後のY座標
@@ -337,9 +337,9 @@ def show_status_message() -> None:
     elif g.game_state == GameState.enter_color_of_captured_piece:  # AIがとったコマの色の入力待ち
         print('enter r or b (color of captured piece)')
     elif g.game_state == GameState.won:  # 勝った表示
-        print('I won!')
+        print('My AI won!')
     elif g.game_state == GameState.lost:  # 負けた表示
-        print('I lost.')
+        print('My AI lost.')
 
 
 def show_help() -> None:
@@ -668,7 +668,7 @@ def think_attack(color: float) -> Move:
             if is_correct_move(move):
                 return move
         # どの方角にも動けなかった場合はここまで落ちてきて、次のコマを試す
-    # すべての赤コマが動けない状態はここまで落ちてくるので、ランダムな手を返す
+    # すべての指定色コマが動けない状態はここまで落ちてくるので、ランダムな手を返す
     return think_random()
 
 
