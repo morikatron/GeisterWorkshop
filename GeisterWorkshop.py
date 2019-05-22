@@ -788,5 +788,6 @@ def think() -> Move:
             break
     return move
 
+
 if __name__ == '__main__':
     main()
