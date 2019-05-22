@@ -7,7 +7,7 @@
 
 ## リポジトリの内容
 このリポジトリには、次のファイルがあります。
-* geister4workshop0521.py : 手元のPythonで実行する場合にはこのコードを使ってください。
+* GeisterWorkshop.py : 手元のPythonで実行する場合にはこのコードを使ってください。
 * GeisterWorkshop.ipynb : Google Colaboratoryで作ったファイルです。手元のマシンにPythonがなくても、open in Colabをクリックすることで、Google Colaboratiroryで開き、実行することができます。詳しいプログラムの解説もこのファイルに書いてあります。
  
 ## ライセンス
