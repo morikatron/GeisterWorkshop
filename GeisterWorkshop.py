@@ -704,7 +704,7 @@ def move_to_win() -> Union[Move, None]:
     if which_player == ME:
         if piece.color == COL_B:
             return Move(which_player=ME,
-                        piece_x=0,
+                        piece_x=BOARD_WIDTH - 1,    # これが0になっていた（バグ）ので修正しました。事故った方ごめんなさいです！
                         piece_y=0,
                         direction='w')
     return None
